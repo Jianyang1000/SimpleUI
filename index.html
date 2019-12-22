@@ -132,22 +132,27 @@
             <s-button icon="search" icon-position="right" type="danger">登录</s-button>
         </div>
         <div>
-            <s-button icon="search" :loading="true" :round="true">登录</s-button>
-            <s-button :round="true">登录</s-button>
-            <s-button icon="search" icon-position="right" :round="true">登录</s-button>
+            <s-button icon="search" :loading="true" round>登录</s-button>
+            <s-button round>登录</s-button>
+            <s-button icon="search" icon-position="right" round>登录</s-button>
         </div>
         <div class="danger">
-            <s-button icon="search" :loading="true" type="danger" :round="true">登录</s-button>
-            <s-button type="danger" :round="true">登录</s-button>
-            <s-button icon="search" icon-position="right" type="danger" :round="true">登录</s-button>
+            <s-button icon="search" :loading="true" type="danger" round>登录</s-button>
+            <s-button type="danger" round>登录</s-button>
+            <s-button icon="search" icon-position="right" type="danger" round>登录</s-button>
         </div>
         <div class="default">
-            <s-button class="s-button-medium" icon="search" :loading="true">登录</s-button>
-            <s-button class="s-button-small">登录</s-button>
-            <s-button class="s-button-mini" icon="search" icon-position="right">登录</s-button>
+            <s-button size="medium" icon="search" :loading="true">登录</s-button>
+            <s-button size="small">登录</s-button>
+            <s-button size="mini" icon="search" icon-position="right">登录</s-button>
+        </div>
+        <div class="default">
+            <s-button  icon="search" :loading="loading1" @click="loading1 = !loading1">登录</s-button>
+            <s-button>登录</s-button>
+            <s-button  icon="search" :loading="loading2" @click="loading2 = !loading2" icon-position="right">登录</s-button>
         </div>
     </div>
-
+    <div id="test"></div>
 
     <script src="//at.alicdn.com/t/font_1573230_oz08u872an.js"></script>
     <script src="./src/app.js"></script>
