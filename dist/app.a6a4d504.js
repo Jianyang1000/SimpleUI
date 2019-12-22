@@ -12427,7 +12427,7 @@ function patchScopedSlots (instance) {
   }
 }
 
-},{}],"src/button.vue":[function(require,module,exports) {
+},{}],"src/icon.vue":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -12439,7 +12439,140 @@ exports.default = void 0;
 //
 //
 //
-var _default = {};
+//
+var _default = {
+  name: "",
+  props: {
+    icon: ''
+  }
+};
+exports.default = _default;
+        var $051062 = exports.default || module.exports;
+      
+      if (typeof $051062 === 'function') {
+        $051062 = $051062.options;
+      }
+    
+        /* template */
+        Object.assign($051062, (function () {
+          var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("svg", { staticClass: "icon" }, [
+    _c("use", { attrs: { "xlink:href": "#icon-" + _vm.icon } })
+  ])
+}
+var staticRenderFns = []
+render._withStripped = true
+
+          return {
+            render: render,
+            staticRenderFns: staticRenderFns,
+            _compiled: true,
+            _scopeId: "data-v-051062",
+            functional: undefined
+          };
+        })());
+      
+    /* hot reload */
+    (function () {
+      if (module.hot) {
+        var api = require('vue-hot-reload-api');
+        api.install(require('vue'));
+        if (api.compatible) {
+          module.hot.accept();
+          if (!module.hot.data) {
+            api.createRecord('$051062', $051062);
+          } else {
+            api.reload('$051062', $051062);
+          }
+        }
+
+        
+        var reloadCSS = require('_css_loader');
+        module.hot.dispose(reloadCSS);
+        module.hot.accept(reloadCSS);
+      
+      }
+    })();
+},{"_css_loader":"node_modules/parcel-bundler/src/builtins/css-loader.js","vue-hot-reload-api":"node_modules/vue-hot-reload-api/dist/index.js","vue":"node_modules/vue/dist/vue.common.js"}],"src/button.vue":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _icon = _interopRequireDefault(require("./icon"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+var _default = {
+  name: "s-button",
+  components: {
+    "s-icon": _icon.default
+  },
+  props: {
+    icon: "",
+    iconPosition: {
+      type: String,
+      default: "left",
+      validator: function validator(value) {
+        return value === "left" || value === "right";
+      }
+    },
+    loading: {
+      type: Boolean,
+      default: false
+    },
+    type: {
+      type: String,
+      default: "default",
+      validator: function validator(value) {
+        return value === "default" || value === "success" || value === "primary" || value === "info" || value === "warning" || value === "danger";
+      }
+    },
+    round: {
+      type: Boolean,
+      default: false
+    },
+    size: {
+      type: String,
+      validator: function validator(value) {
+        return value === "medium" || value === "small" || value === "mini";
+      }
+    },
+    disabled: {
+      type: Boolean
+    }
+  }
+};
 exports.default = _default;
         var $7acf61 = exports.default || module.exports;
       
@@ -12450,10 +12583,43 @@ exports.default = _default;
         /* template */
         Object.assign($7acf61, (function () {
           var render = function() {
+  var _obj
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("button", { staticClass: "g-button" }, [_vm._v("按钮")])
+  return _c(
+    "button",
+    {
+      staticClass: "s-button",
+      class: [
+        ((_obj = {}), (_obj["icon-" + _vm.iconPosition] = true), _obj),
+        _vm.type ? "s-button--" + _vm.type : "",
+        _vm.size ? "s-button--" + _vm.size : "",
+        {
+          "is-loading": _vm.loading,
+          "is-disabled": _vm.disabled,
+          "is-round": _vm.round
+        }
+      ],
+      on: {
+        click: function($event) {
+          return _vm.$emit("click")
+        }
+      }
+    },
+    [
+      _vm.icon && !_vm.loading
+        ? _c("s-icon", { attrs: { icon: "search" } })
+        : _vm._e(),
+      _vm._v(" "),
+      _vm.loading
+        ? _c("s-icon", { staticClass: "loading", attrs: { icon: "loading" } })
+        : _vm._e(),
+      _vm._v(" "),
+      _c("div", { staticClass: "s-button-content" }, [_vm._t("default")], 2)
+    ],
+    1
+  )
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -12488,6 +12654,70 @@ render._withStripped = true
       
       }
     })();
+},{"./icon":"src/icon.vue","_css_loader":"node_modules/parcel-bundler/src/builtins/css-loader.js","vue-hot-reload-api":"node_modules/vue-hot-reload-api/dist/index.js","vue":"node_modules/vue/dist/vue.common.js"}],"src/button-group.vue":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+//
+//
+//
+//
+//
+//
+var _default = {
+  name: ""
+};
+exports.default = _default;
+        var $95aa6e = exports.default || module.exports;
+      
+      if (typeof $95aa6e === 'function') {
+        $95aa6e = $95aa6e.options;
+      }
+    
+        /* template */
+        Object.assign($95aa6e, (function () {
+          var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "s-button-group" }, [_vm._t("default")], 2)
+}
+var staticRenderFns = []
+render._withStripped = true
+
+          return {
+            render: render,
+            staticRenderFns: staticRenderFns,
+            _compiled: true,
+            _scopeId: null,
+            functional: undefined
+          };
+        })());
+      
+    /* hot reload */
+    (function () {
+      if (module.hot) {
+        var api = require('vue-hot-reload-api');
+        api.install(require('vue'));
+        if (api.compatible) {
+          module.hot.accept();
+          if (!module.hot.data) {
+            api.createRecord('$95aa6e', $95aa6e);
+          } else {
+            api.reload('$95aa6e', $95aa6e);
+          }
+        }
+
+        
+        var reloadCSS = require('_css_loader');
+        module.hot.dispose(reloadCSS);
+        module.hot.accept(reloadCSS);
+      
+      }
+    })();
 },{"_css_loader":"node_modules/parcel-bundler/src/builtins/css-loader.js","vue-hot-reload-api":"node_modules/vue-hot-reload-api/dist/index.js","vue":"node_modules/vue/dist/vue.common.js"}],"src/app.js":[function(require,module,exports) {
 "use strict";
 
@@ -12495,17 +12725,27 @@ var _vue = _interopRequireDefault(require("vue"));
 
 var _button = _interopRequireDefault(require("./button"));
 
+var _buttonGroup = _interopRequireDefault(require("./button-group"));
+
+var _icon = _interopRequireDefault(require("./icon"));
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-_vue.default.component('g-button', _button.default);
+_vue.default.component('s-button', _button.default);
+
+_vue.default.component('s-button-group', _buttonGroup.default);
+
+_vue.default.component('s-icon', _icon.default);
 
 new _vue.default({
   el: "#app",
   data: {
-    message: 'hi'
+    message: 'hi',
+    loading1: false,
+    loading2: true
   }
 });
-},{"vue":"node_modules/vue/dist/vue.common.js","./button":"src/button.vue"}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+},{"vue":"node_modules/vue/dist/vue.common.js","./button":"src/button.vue","./button-group":"src/button-group.vue","./icon":"src/icon.vue"}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -12533,7 +12773,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "62883" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "40340" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
