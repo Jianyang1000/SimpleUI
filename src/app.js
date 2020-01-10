@@ -14,4 +14,15 @@ new Vue({
         loading1: false,
         loading2 : true
     },
+    methods: {
+        inputChange(){
+            console.log('change了')
+        },
+        inputInput(){
+            console.log('input了');
+        },
+        inputFocus(){
+            console.log('focus了');
+        }
+    }
 })

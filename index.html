@@ -152,10 +152,18 @@
             <s-button>登录</s-button>
             <s-button  icon="search" :loading="loading2" @click="loading2 = !loading2" icon-position="right">登录</s-button>
         </div>
+        <div class="s-input">
+            <s-input @change="inputChange"></s-input>
+            <s-input disabled @change="inputInput"></s-input>
+            <s-input error="你错啦" @focus="inputFocus"></s-input>
+            <s-input v-model="message"></s-input>
+            <p>{{message}}</p>
+        </div>
     </div>
-    <div id="test"></div>
 
-    <script src="//at.alicdn.com/t/font_1573230_oz08u872an.js"></script>
+
+
+    <script src="//at.alicdn.com/t/font_1573230_olrygjz10pl.js"></script>
     <script src="./src/app.js"></script>
 
 </body>

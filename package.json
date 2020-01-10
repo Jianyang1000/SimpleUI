@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "parcel index.html --no-cache",
     "build": "parcel build",
-    "dev-test": "parcel watch test/* --no-cache & karma start",
+    "dev-test": "parcel watch test/* --no-cache & karma start --no-minify",
     "test": "parcel build test/* --no-minify && karma start --single-run"
   },
   "license": "MIT",
