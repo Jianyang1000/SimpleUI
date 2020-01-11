@@ -92,11 +92,30 @@
             overflow: hidden;
         }
     </style>
+    <style>
+
+    </style>
 </head>
 
 <body>
     <div id="app">
-        <div></div>
+        <div>
+            <s-row>
+                <s-col span="6">1</s-col>
+                <s-col span="6">2</s-col>
+                <s-col span="6" offset="2">3</s-col>
+                <s-col span="4">4</s-col>
+            </s-row>
+            <s-row>
+                <s-col span="1">1</s-col>
+                <s-col span="23">2</s-col>
+            </s-row>
+            <s-row>
+                <s-col span="23">1</s-col>
+                <s-col span="1">2</s-col>
+            </s-row>
+        </div>
+
         <div class="default">
             <s-button icon="search" :loading="true">登录</s-button>
             <s-button>登录</s-button>
