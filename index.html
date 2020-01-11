@@ -6,8 +6,7 @@
     <title>Title</title>
     <style>
         * {
-            margin: 0;
-            padding: 0;
+
             box-sizing: border-box;
         }
 
@@ -79,7 +78,7 @@
 
         #app {
             margin-top: 20px;
-            margin-left: 20px;
+
         }
         #app>div {
             margin-top: 20px;
@@ -99,16 +98,16 @@
 
 <body>
     <div id="app">
-        <div>
+        <div style="border:1px solid #000">
             <s-row>
                 <s-col span="6">1</s-col>
                 <s-col span="6">2</s-col>
                 <s-col span="6" offset="2">3</s-col>
                 <s-col span="4">4</s-col>
             </s-row>
-            <s-row>
+            <s-row gutter="10">
                 <s-col span="1">1</s-col>
-                <s-col span="23">2</s-col>
+                <s-col span="20">2</s-col>
             </s-row>
             <s-row>
                 <s-col span="23">1</s-col>
