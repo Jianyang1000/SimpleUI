@@ -10,9 +10,6 @@
         props: {
             gutter: [Number,String]
         },
-        methods: {
-
-        },
         mounted() {
             this.$children.forEach(vm => {
                 vm.gutter = this.gutter
