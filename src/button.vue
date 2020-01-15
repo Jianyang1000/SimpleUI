@@ -76,6 +76,70 @@
 </script>
 
 <style lang="scss">
+    $button-default-bg: #fff;
+    $button-default-border: #DCDFE6;
+    $button-default-color: #606266;
+    $button-default-hover-bg: #ECF5FF;
+    $button-default-hover-border: #C6E2FF;
+    $button-default-hover-color: #409EFF;
+    $button-default-active-bg: #ECF5FF;
+    $button-default-active-border: #3A8EE6;
+    $button-default-active-color: #3A8EE6;
+
+    $button-primary-bg: #409EFF;
+    $button-primary-border: #409EFF;
+    $button-primary-color: #fff;
+    $button-primary-hover-bg: #66B1FF;
+    $button-primary-hover-border: #66B1FF;
+    $button-primary-hover-color: #fff;
+    $button-primary-active-bg: #3A8EE6;
+    $button-primary-active-border: #3A8EE6;
+    $button-primary-active-color: #fff;
+
+    $button-success-bg: #67C23A;
+    $button-success-border: #67C23A;
+    $button-success-color: #fff;
+    $button-success-hover-bg: #85CE61;
+    $button-success-hover-border: #85CE61;
+    $button-success-hover-color: #fff;
+    $button-success-active-bg: #5DAF34;
+    $button-success-active-border: #5DAF34;
+    $button-success-active-color: #fff;
+
+    $button-info-bg: #909399;
+    $button-info-border: #909399;
+    $button-info-color: #fff;
+    $button-info-hover-bg: #A6A9AD;
+    $button-info-hover-border: #A6A9AD;
+    $button-info-hover-color: #fff;
+    $button-info-active-bg: #82848A;
+    $button-info-active-border: #82848A;
+    $button-info-active-color: #fff;
+
+    $button-warning-bg: #E6A23C;
+    $button-warning-border: #E6A23C;
+    $button-warning-color: #fff;
+    $button-warning-hover-bg: #EBB563;
+    $button-warning-hover-border: #EBB563;
+    $button-warning-hover-color: #fff;
+    $button-warning-active-bg: #CF9236;
+    $button-warning-active-border: #CF9236;
+    $button-warning-active-color: #fff;
+
+    $button-danger-bg: #F56C6C;
+    $button-danger-border: #F56C6C;
+    $button-danger-color: #fff;
+    $button-danger-hover-bg: #F78989;
+    $button-danger-hover-border: #F78989;
+    $button-danger-hover-color: #fff;
+    $button-danger-active-bg: #DD6161;
+    $button-danger-active-border: #DD6161;
+    $button-danger-active-color: #fff;
+
+
+    $font-size: 14px;
+
+
     @keyframes spin {
         0% {
             transform: rotate(0deg);
@@ -145,208 +209,158 @@
         }
 
         &.s-button--default {
-            color: var(--button-default-color);
-            border: 1px solid var(--button-default-border);
-            background-color: var(--button-default-bg);
+            color: $button-default-color;
+            border: 1px solid $button-default-border;
+            background-color: $button-default-bg;
         }
 
         &.s-button--default:hover {
-            color: var(--button-default-hover-color);
-            border: 1px solid var(--button-default-hover-border);
-            background-color: var(--button-default-hover-bg);
+            color: $button-default-hover-color;
+            border: 1px solid $button-default-hover-border;
+            background-color: $button-default-hover-bg;
         }
 
         &.s-button--default:focus {
-            color: var(--button-default-hover-color);
-            border: 1px solid var(--button-default-hover-border);
-            background-color: var(--button-default-hover-bg);
+            color: $button-default-hover-color;
+            border: 1px solid $button-default-hover-border;
+            background-color: $button-default-hover-bg;
             outline: none;
         }
 
         &.s-button--default:active {
-            color: var(--button-default-active-color);
-            border: 1px solid var(--button-default-active-border);
-            background-color: var(--button-default-active-bg);
+            color: $button-default-active-color;
+            border: 1px solid $button-default-active-border;
+            background-color: $button-default-active-bg;
         }
 
         &.s-button--primary {
-            color: var(--button-primary-color);
-            border: 1px solid var(--button-primary-border);
-            background-color: var(--button-primary-bg);
+            color: $button-primary-color;
+            border: 1px solid $button-primary-border;
+            background-color: $button-primary-bg;
         }
 
         &.s-button--primary:hover {
-            color: var(--button-primary-hover-color);
-            border: 1px solid var(--button-primary-hover-border);
-            background-color: var(--button-primary-hover-bg);
-        }
-
-        &.s-button--primary:active {
-            color: var(--button-primary-active-color) !important;
-            border: 1px solid var(--button-primary-active-border) !important;
-            background-color: var(--button-primary-active-bg) !important;
+            color: $button-primary-hover-color;
+            border: 1px solid $button-primary-hover-border;
+            background-color: $button-primary-hover-bg;
         }
 
         &.s-button--primary:focus {
-            color: var(--button-primary-hover-color);
-            border: 1px solid var(--button-primary-hover-border);
-            background-color: var(--button-primary-hover-bg);
+            color: $button-primary-hover-color;
+            border: 1px solid $button-primary-hover-border;
+            background-color: $button-primary-hover-bg;
             outline: none;
         }
+        &.s-button--primary:active {
+            color: $button-primary-active-color;
+            border: 1px solid $button-primary-active-border;
+            background-color: $button-primary-active-bg;
+        }
+
+
 
         &.s-button--success {
-            color: var(--button-success-color);
-            border: 1px solid var(--button-success-border);
-            background-color: var(--button-success-bg);
+            color: $button-success-color;
+            border: 1px solid $button-success-border;
+            background-color: $button-success-bg;
         }
 
         &.s-button--success:hover {
-            color: var(--button-success-hover-color);
-            border: 1px solid var(--button-success-hover-border);
-            background-color: var(--button-success-hover-bg);
-        }
-
-        &.s-button--success:active {
-            color: var(--button-success-active-color) !important;
-            border: 1px solid var(--button-success-active-border) !important;
-            background-color: var(--button-success-active-bg) !important;
-        }
-
-        &.s-button--success:visited {
-            color: var(--button-success-hover-color);
-            border: 1px solid var(--button-success-hover-border);
-            background-color: var(--button-success-hover-bg);
+            color: $button-success-hover-color;
+            border: 1px solid $button-success-hover-border;
+            background-color: $button-success-hover-bg;
         }
 
         &.s-button--success:focus {
-            color: var(--button-success-hover-color);
-            border: 1px solid var(--button-success-hover-border);
-            background-color: var(--button-success-hover-bg);
+            color: $button-success-hover-color;
+            border: 1px solid $button-success-hover-border;
+            background-color: $button-success-hover-bg;
             outline: none;
+        }
+
+        &.s-button--success:active {
+            color: $button-success-active-color;
+            border: 1px solid $button-success-active-border;
+            background-color: $button-success-active-bg;
         }
 
         &.s-button--info {
-            color: var(--button-info-color);
-            border: 1px solid var(--button-info-border);
-            background-color: var(--button-info-bg);
+            color: $button-info-color;
+            border: 1px solid $button-info-border;
+            background-color: $button-info-bg;
         }
 
         &.s-button--info:hover {
-            color: var(--button-info-hover-color);
-            border: 1px solid var(--button-info-hover-border);
-            background-color: var(--button-info-hover-bg);
-        }
-
-        &.s-button--info:active {
-            color: var(--button-info-active-color) !important;
-            border: 1px solid var(--button-info-active-border) !important;
-            background-color: var(--button-info-active-bg) !important;
-        }
-
-        &.s-button--info:visited {
-            color: var(--button-info-hover-color);
-            border: 1px solid var(--button-info-hover-border);
-            background-color: var(--button-info-hover-bg);
+            color: $button-info-hover-color;
+            border: 1px solid $button-info-hover-border;
+            background-color: $button-info-hover-bg;
         }
 
         &.s-button--info:focus {
-            color: var(--button-info-hover-color);
-            border: 1px solid var(--button-info-hover-border);
-            background-color: var(--button-info-hover-bg);
+            color: $button-info-hover-color;
+            border: 1px solid $button-info-hover-border;
+            background-color: $button-info-hover-bg;
             outline: none;
         }
 
-        &.s-button--success {
-            color: var(--button-success-color);
-            border: 1px solid var(--button-success-border);
-            background-color: var(--button-success-bg);
-        }
-
-        &.s-button--success:hover {
-            color: var(--button-success-hover-color);
-            border: 1px solid var(--button-success-hover-border);
-            background-color: var(--button-success-hover-bg);
-        }
-
-        &.s-button--success:active {
-            color: var(--button-success-active-color) !important;
-            border: 1px solid var(--button-success-active-border) !important;
-            background-color: var(--button-success-active-bg) !important;
-        }
-
-        &.s-button--success:visited {
-            color: var(--button-success-hover-color);
-            border: 1px solid var(--button-success-hover-border);
-            background-color: var(--button-success-hover-bg);
-        }
-
-        &.s-button--success:focus {
-            color: var(--button-success-hover-color);
-            border: 1px solid var(--button-success-hover-border);
-            background-color: var(--button-success-hover-bg);
-            outline: none;
+        &.s-button--info:active {
+            color: $button-info-active-color;
+            border: 1px solid $button-info-active-border;
+            background-color: $button-info-active-bg;
         }
 
         &.s-button--warning {
-            color: var(--button-warning-color);
-            border: 1px solid var(--button-warning-border);
-            background-color: var(--button-warning-bg);
+            color: $button-warning-color;
+            border: 1px solid $button-warning-border;
+            background-color: $button-warning-bg;
         }
 
         &.s-button--warning:hover {
-            color: var(--button-warning-hover-color);
-            border: 1px solid var(--button-warning-hover-border);
-            background-color: var(--button-warning-hover-bg);
-        }
-
-        &.s-button--warning:active {
-            color: var(--button-warning-active-color) !important;
-            border: 1px solid var(--button-warning-active-border) !important;
-            background-color: var(--button-warning-active-bg) !important;
-        }
-
-        &.s-button--warning:visited {
-            color: var(--button-warning-hover-color);
-            border: 1px solid var(--button-warning-hover-border);
-            background-color: var(--button-warning-hover-bg);
+            color: $button-warning-hover-color;
+            border: 1px solid $button-warning-hover-border;
+            background-color: $button-warning-hover-bg;
         }
 
         &.s-button--warning:focus {
-            color: var(--button-warning-hover-color);
-            border: 1px solid var(--button-warning-hover-border);
-            background-color: var(--button-warning-hover-bg);
+            color: $button-warning-hover-color;
+            border: 1px solid $button-warning-hover-border;
+            background-color: $button-warning-hover-bg;
             outline: none;
         }
 
+        &.s-button--warning:active {
+            border: 1px solid $button-warning-active-border;
+            color: $button-warning-active-color;
+            background-color: $button-warning-active-bg;
+        }
+
+
+
         &.s-button--danger {
-            color: var(--button-danger-color);
-            border: 1px solid var(--button-danger-border);
-            background-color: var(--button-danger-bg);
+            color: $button-danger-color;
+            border: 1px solid $button-danger-border;
+            background-color: $button-danger-bg;
         }
 
         &.s-button--danger:hover {
-            color: var(--button-danger-hover-color);
-            border: 1px solid var(--button-danger-hover-border);
-            background-color: var(--button-danger-hover-bg);
-        }
-
-        &.s-button--danger:active {
-            color: var(--button-danger-active-color) !important;
-            border: 1px solid var(--button-danger-active-border) !important;
-            background-color: var(--button-danger-active-bg) !important;
-        }
-
-        &.s-button--danger:visited {
-            color: var(--button-danger-hover-color);
-            border: 1px solid var(--button-danger-hover-border);
-            background-color: var(--button-danger-hover-bg);
+            color: $button-danger-hover-color;
+            border: 1px solid $button-danger-hover-border;
+            background-color: $button-danger-hover-bg;
         }
 
         &.s-button--danger:focus {
-            color: var(--button-danger-hover-color);
-            border: 1px solid var(--button-danger-hover-border);
-            background-color: var(--button-danger-hover-bg);
+            color: $button-danger-hover-color;
+            border: 1px solid $button-danger-hover-border;
+            background-color: $button-danger-hover-bg;
             outline: none;
         }
+
+        &.s-button--danger:active {
+            color: $button-danger-active-color;
+            border: 1px solid $button-danger-active-border;
+            background-color: $button-danger-active-bg;
+        }
+
+
     }
 </style>
