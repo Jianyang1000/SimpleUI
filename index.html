@@ -38,6 +38,25 @@
 
 <body>
     <div id="app">
+
+        <s-tabs selected="sports" direction="horizontal">
+            <s-tabs-head>
+                <s-tabs-item name="sports"><s-icon icon="search"></s-icon>运动</s-tabs-item>
+                <s-tabs-item name="women">美女</s-tabs-item>
+                <s-tabs-item name="music">音乐</s-tabs-item>
+                <template slot="actions">
+                    <button>按钮</button>
+                </template>
+            </s-tabs-head>
+            <s-tabs-body>
+                <s-tabs-pane name="sports">运动的咨询</s-tabs-pane>
+                <s-tabs-pane name="women">美女的咨询</s-tabs-pane>
+                <s-tabs-pane name="music">音乐的咨询</s-tabs-pane>
+            </s-tabs-body>
+        </s-tabs>
+
+
+
         <!--<s-layout class="layoutWrap"  style="height: 100vh;">
             <s-header class="demo">Header</s-header>
             <s-layout>

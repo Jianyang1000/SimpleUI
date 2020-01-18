@@ -26,7 +26,6 @@ describe('Toast',() => {
                 expect(document.body.contains(vm.$el)).to.eq(false)
                 done()
             })
-
         })
         it('position 参数',() => {
             const Constructor = Vue.extend(Toast)
@@ -48,13 +47,13 @@ describe('Toast',() => {
                         callback,
                     }
                 }
-            }).$mount()
-            const closeButton = vm.$el.querySelector('.close')
 
+
+            }).$mount();
+            const closeButton = vm.$el.querySelector('.close')
             expect(closeButton.textContent.trim()).to.eq('知道了')
             closeButton.click()
             expect(callback).to.have.been.called
         })
     })
-
 })

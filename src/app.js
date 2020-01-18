@@ -3,14 +3,19 @@ import Button from './button'
 import ButtonGroup from './button-group'
 import Icon from './icon'
 import Input from './input'
-import Row from './row.vue'
-import Col from './col.vue'
-import Content from './content.vue'
-import Layout from './layout.vue'
-import Header from './header.vue'
-import Footer from './footer.vue'
-import Sider from './sider.vue'
+import Row from './row'
+import Col from './col'
+import Content from './content'
+import Layout from './layout'
+import Header from './header'
+import Footer from './footer'
+import Sider from './sider'
 import Plugin from './plugin.js'
+import Tabs from './tabs'
+import TabsHead from './tabs-head'
+import TabsBody from './tabs-body'
+import TabsItem from './tabs-item'
+import TabsPane from './tabs-pane'
 
 Vue.use(Plugin)
 
@@ -25,6 +30,11 @@ Vue.component('s-content', Content)
 Vue.component('s-header', Header)
 Vue.component('s-footer', Footer)
 Vue.component('s-sider', Sider)
+Vue.component('s-tabs',Tabs)
+Vue.component('s-tabs-body',TabsBody)
+Vue.component('s-tabs-head',TabsHead)
+Vue.component('s-tabs-item',TabsItem)
+Vue.component('s-tabs-pane',TabsPane)
 
 
 new Vue({

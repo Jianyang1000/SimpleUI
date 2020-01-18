@@ -35,8 +35,8 @@
             }
         },
         mounted() {
-            this.execAutoClose()
-            this.updateStyles()
+            this.execAutoClose();
+            this.updateStyles();
         },
         methods: {
             execAutoClose() {
