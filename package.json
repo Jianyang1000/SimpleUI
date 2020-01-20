@@ -7,7 +7,6 @@
     "dev-test": "parcel watch test/* --no-cache --no-minify & karma start",
     "dev": "parcel index.html --no-cache",
     "build": "parcel build",
-
     "test": "parcel build test/* --no-cache --no-minify && karma start --single-run",
     "docs:dev": "vuepress dev docs",
     "docs:build": "vuepress build docs"

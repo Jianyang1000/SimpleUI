@@ -1,5 +1,5 @@
 <template>
-    <div class="tabs-item" :class="classes" @click="selectItem">
+    <div class="tabs-item" :class="classes" @click="selectItem" :data-name="name">
         <slot></slot>
     </div>
 </template>
@@ -14,12 +14,18 @@
             }
         },
         props: {
-            name: String,
+            name: {
+                type: String | Number,
+                required: true
+            },
+            disabled: {
+                type: Boolean,
+                default: false
+            }
         },
         inject: ['eventBus'],
         created() {
-            this.eventBus.$on('update:selected', (name,vm) => {
-
+            this.eventBus && this.eventBus.$on('update:selected', (name,vm) => {
                 this.active = this.name === name
             })
         },
@@ -29,18 +35,21 @@
                     active: this.active,
                     disabled: this.disabled
                 }
-
             }
         },
         methods: {
             selectItem() {
-                this.eventBus.$emit('update:selected', this.name,this)
+                if(this.disabled){return}
+                this.eventBus && this.eventBus.$emit('update:selected', this.name,this)
+                this.$emit('click',this)
             }
         },
     }
 </script>
 
 <style scoped lang="scss">
+    $disabled-text-color: grey;
+    $blue: #409eff;
     .tabs-item {
         padding: 0 1em;
         flex-shrink: 0;
@@ -53,7 +62,8 @@
 
         }
         &.disabled {
-
+            color: $disabled-text-color;
+            cursor: not-allowed;
         }
     }
 </style>

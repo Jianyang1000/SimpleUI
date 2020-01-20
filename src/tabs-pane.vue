@@ -1,5 +1,5 @@
 <template>
-    <div class="tabs-pane" :class="classes">
+    <div class="tabs-pane" :class="classes" :data-name="name">
         <slot></slot>
     </div>
 </template>
@@ -13,7 +13,10 @@
             }
         },
         props: {
-            name: String
+            name: {
+                type: String | Number,
+                required: true
+            }
         },
         computed:{
           classes(){
@@ -24,7 +27,7 @@
         },
         inject:['eventBus'],
         created(){
-          this.eventBus.$on('update:selected',(name) => {
+            this.eventBus && this.eventBus && this.eventBus.$on('update:selected',(name) => {
               this.active = this.name === name
           })
         },

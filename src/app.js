@@ -16,6 +16,10 @@ import TabsHead from './tabs-head'
 import TabsBody from './tabs-body'
 import TabsItem from './tabs-item'
 import TabsPane from './tabs-pane'
+import Collapse from './collapse'
+import CollapseItem from './collapse-item'
+
+
 
 Vue.use(Plugin)
 
@@ -35,6 +39,8 @@ Vue.component('s-tabs-body',TabsBody)
 Vue.component('s-tabs-head',TabsHead)
 Vue.component('s-tabs-item',TabsItem)
 Vue.component('s-tabs-pane',TabsPane)
+Vue.component('s-collapse',Collapse)
+Vue.component('s-collapse-item',CollapseItem)
 
 
 new Vue({
@@ -42,7 +48,8 @@ new Vue({
     data: {
         message: 'hi',
         loading1: false,
-        loading2: true
+        loading2: true,
+        selectedTab: '2'
     },
     methods: {
         inputChange() {
