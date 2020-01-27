@@ -21,7 +21,7 @@
                 default: false
             },
             selected: {
-                type: String
+                type: [String,Number]
             }
         },
         mounted() {

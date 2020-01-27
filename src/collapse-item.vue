@@ -3,9 +3,11 @@
         <div class="title">
             {{title}}
         </div>
-        <div class="content" v-if="open">
-            <slot></slot>
-        </div>
+        <transition name="slide-fade">
+            <div class="content" v-if="open">
+                <slot></slot>
+            </div>
+        </transition>
 
     </div>
 </template>
@@ -79,5 +81,16 @@
         > .content {
             padding-bottom: 25px;
         }
+    }
+
+    .slide-fade-enter-active {
+        transition: all .8s ease;
+    }
+    .slide-fade-leave-active {
+        transition: all .8s ease;
+    }
+    .slide-fade-enter, .slide-fade-leave-to
+        /* .slide-fade-leave-active for below version 2.1.8 */ {
+        opacity: 0;
     }
 </style>

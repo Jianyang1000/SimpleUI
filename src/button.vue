@@ -14,7 +14,7 @@
     ]"
 
     >
-        <s-icon icon="search" v-if="icon && !loading"></s-icon>
+        <s-icon :icon="icon" v-if="icon && !loading"></s-icon>
         <s-icon icon="loading" class="loading" v-if="loading"></s-icon>
         <div class="s-button-content">
             <slot/>
@@ -32,7 +32,7 @@
             "s-icon": Icon
         },
         props: {
-            icon: "",
+            icon: String,
             iconPosition: {
                 type: String,
                 default: "left",
@@ -75,7 +75,8 @@
     };
 </script>
 
-<style lang="scss">
+<style scoped lang="scss">
+    $border-radius: 4px;
     $button-default-bg: #fff;
     $button-default-border: #DCDFE6;
     $button-default-color: #606266;
@@ -150,9 +151,9 @@
     }
 
     .s-button {
-        font-size: var(--font-size);
+
         padding: 12px 20px;
-        border-radius: var(--border-radius);
+        border-radius: $border-radius;
         display: inline-flex;
         justify-content: center;
         align-items: center;
@@ -163,47 +164,43 @@
             order: 2;
         }
 
-        > .icon {
-            order: 1;
-            margin-right: 5px;
-        }
 
-        &.icon-right {
-            > .s-button-content {
-                order: 1;
-            }
-
-            > .icon {
-                order: 2;
-                margin-right: 0;
-                margin-left: 5px;
-            }
-        }
 
         > .loading {
             animation: 2s linear infinite spin;
         }
-
+        &.is-round {
+            padding: 12px 23px;
+            border-radius: 20px;
+        }
         &.s-button--medium {
             padding: 10px 20px;
+            &.is-round {
+                padding: 10px 20px;
+                border-radius: 20px;
+            }
         }
-
         &.s-button--small {
             padding: 9px 15px;
             font-size: 12px;
             border-radius: 3px;
+            &.is-round {
+                padding: 9px 15px;
+                border-radius: 20px;
+            }
         }
 
         &.s-button--mini {
             padding: 7px 15px;
             font-size: 12px;
             border-radius: 3px;
+            &.is-round {
+                padding: 7px 15px;
+                border-radius: 20px;
+            }
         }
 
-        &.is-round {
-            padding: 12px 23px;
-            border-radius: 20px;
-        }
+
 
         &.is-disabled {
         }
@@ -251,12 +248,12 @@
             background-color: $button-primary-hover-bg;
             outline: none;
         }
+
         &.s-button--primary:active {
             color: $button-primary-active-color;
             border: 1px solid $button-primary-active-border;
             background-color: $button-primary-active-bg;
         }
-
 
 
         &.s-button--success {
@@ -335,7 +332,6 @@
         }
 
 
-
         &.s-button--danger {
             color: $button-danger-color;
             border: 1px solid $button-danger-border;
@@ -360,7 +356,21 @@
             border: 1px solid $button-danger-active-border;
             background-color: $button-danger-active-bg;
         }
+        > .icon {
+            order: 1;
+            margin-right: 5px;
+        }
 
+        &.icon-right {
+            > .s-button-content {
+                order: 1;
+            }
 
+            > .icon {
+                order: 2;
+                margin-right: 0;
+                margin-left: 5px;
+            }
+        }
     }
 </style>

@@ -13,7 +13,7 @@
 
         #app {
 
-            margin: 20px;
+
         }
         #app>div {
             margin-top: 20px;
@@ -94,15 +94,16 @@
             <s-button @click="showToastMiddle">middle</s-button>
             <s-button @click="showToastBottom">bottom</s-button>
         </div>
+
         <div style="border:1px solid #000">
-            <s-row>
+            <s-row gutter="20">
                 <s-col span="23" :ipad="{span:2,offset:2}">1</s-col>
                 <s-col span="1" :ipad="{span:4}">2</s-col>
             </s-row>
         </div>
 
         <div class="default">
-            <s-button icon="search" :loading="true">登录</s-button>
+            <s-button icon="search" loading>登录</s-button>
             <s-button>登录</s-button>
             <s-button icon="search" icon-position="right">登录</s-button>
             <s-button-group>
@@ -112,37 +113,37 @@
             </s-button-group>
         </div>
         <div class="primary">
-            <s-button icon="search" :loading="true" type="primary">登录</s-button>
+            <s-button icon="search" loading type="primary">登录</s-button>
             <s-button type="primary">登录</s-button>
             <s-button icon="search" icon-position="right" type="primary">登录</s-button>
         </div>
         <div class="success">
-            <s-button icon="search" :loading="true" type="success">登录</s-button>
+            <s-button icon="search" loading type="success">登录</s-button>
             <s-button type="success">登录</s-button>
             <s-button icon="search" icon-position="right" type="success">登录</s-button>
         </div>
         <div class="info">
-            <s-button icon="search" :loading="true" type="info">登录</s-button>
+            <s-button icon="search" loading type="info">登录</s-button>
             <s-button type="info">登录</s-button>
             <s-button icon="search" icon-position="right" type="info">登录</s-button>
         </div>
         <div class="warning">
-            <s-button icon="search" :loading="true" type="warning">登录</s-button>
+            <s-button icon="search" loading type="warning">登录</s-button>
             <s-button type="warning">登录</s-button>
             <s-button icon="search" icon-position="right" type="warning">登录</s-button>
         </div>
         <div class="danger">
-            <s-button icon="search" :loading="true" type="danger">登录</s-button>
+            <s-button icon="search" loading type="danger">登录</s-button>
             <s-button type="danger">登录</s-button>
             <s-button icon="search" icon-position="right" type="danger">登录</s-button>
         </div>
         <div>
-            <s-button icon="search" :loading="true" round>登录</s-button>
+            <s-button icon="search" loading round>登录</s-button>
             <s-button round>登录</s-button>
             <s-button icon="search" icon-position="right" round>登录</s-button>
         </div>
         <div class="danger">
-            <s-button icon="search" :loading="true" type="danger" round>登录</s-button>
+            <s-button icon="search" loading type="danger" round>登录</s-button>
             <s-button type="danger" round>登录</s-button>
             <s-button icon="search" icon-position="right" type="danger" round>登录</s-button>
         </div>

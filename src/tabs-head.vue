@@ -1,5 +1,5 @@
 <template>
-    <div class="tabs-head">
+    <div class="tabs-head" ref="head">
         <slot></slot>
         <div class="line" ref="line"></div>
         <div class="actions-wrapper">
@@ -15,8 +15,9 @@
         mounted() {
             this.eventBus.$on('update:selected',(name,vm) => {
                 let {width,left} = vm.$el.getBoundingClientRect()
+                let {left: left2} = this.$refs.head.getBoundingClientRect()
                 this.$refs.line.style.width = `${width}px`
-                this.$refs.line.style.left = `${left-45}px`
+                this.$refs.line.style.left = `${left -left2}px`
             })
         }
     }
@@ -41,5 +42,6 @@
         > .actions-wrapper {
             margin-left: auto;
         }
+
     }
 </style>

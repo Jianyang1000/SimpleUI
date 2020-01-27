@@ -18,7 +18,7 @@
         props: {
             autoClose: {
                 type: [Number, Boolean],
-                default: false,
+                default: 2,
                 validator(value) {
                     return value === false || typeof value === 'number'
                 }
@@ -115,7 +115,7 @@
         position: fixed;
         left: 50%;
         transform: translateX(-50%);
-
+        z-index: 20;
         &.position-top {
             top: 0;
 

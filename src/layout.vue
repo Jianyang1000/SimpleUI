@@ -17,7 +17,7 @@
         mounted() {
             const children = this.$children
             children.forEach((child) => {
-                if (child.$options.name === 's-sider') {
+                if (child.$options.name === 'SimpleSider') {
                     this.layoutClass.hasSider = true
                 }
             })

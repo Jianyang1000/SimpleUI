@@ -9,8 +9,7 @@
         name: "sTabsItem",
         data() {
             return {
-                active: false,
-                disabled: false
+                active: false
             }
         },
         props: {
@@ -60,6 +59,9 @@
         justify-content: center;
         &.active {
 
+        }
+        > .icon {
+            margin-right: 5px;
         }
         &.disabled {
             color: $disabled-text-color;

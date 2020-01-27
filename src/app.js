@@ -20,7 +20,6 @@ import Collapse from './collapse'
 import CollapseItem from './collapse-item'
 
 
-
 Vue.use(Plugin)
 
 Vue.component('s-button', Button)

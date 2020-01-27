@@ -6,7 +6,6 @@
           'is-disabled' : disabled
         }
     ]">
-
         <input type="text" :value="value" :placeholder="placeholder" :disabled="disabled"
                @change="$emit('change',$event.target.value)"
                @input="$emit('input',$event.target.value)"
@@ -65,25 +64,32 @@
     }
 </script>
 
-<style scoped>
-    > .icon {order: 1;margin-right: 5px;}
+<style scoped lang="scss">
 
-    &.icon-right {
-        > .s-button-content {order: 1;}
 
-        > .icon {order: 2;margin-right: 0;margin-left: 5px;}
-    }
+    .s-input {
+        > input {
+            padding: 0 15px;
+            border-radius: 4px;
+            height: 40px;
+            line-height: 40px;
+            cursor: pointer;
+            border: 1px solid #DCDFE6;
+            display: inline-block;
+            color: #606266;
+            box-sizing: border-box;
+            &:hover {
+                border: 1px solid #C0C4CC;
+                transition: border-color .2s linear;
+            }
+            &:focus {
+                outline: none;
+                border: 1px solid #409EFF;
+                transition: border-color .2s linear;
+            }
 
-    .s-input > input {
-        padding: 0 15px;
-        border-radius: 4px;
-        height: 40px;
-        line-height: 40px;
-        cursor: pointer;
-        border: 1px solid #DCDFE6;
-        display: inline-block;
-        color: #606266;
-        box-sizing: border-box;
+        }
+
     }
 
     .is-disabled > input {
@@ -91,16 +97,8 @@
         color: #C0C4CC;
         border-color: #E4E7ED;
         cursor: not-allowed;
-    }
-
-    .s-input > input:hover {
-        border: 1px solid #C0C4CC;
-        transition: border-color .2s linear;
-    }
-
-    .s-input > input:focus {
-        outline: none;
-        border: 1px solid #409EFF;
-        transition: border-color .2s linear;
+        &:hover {
+            border: 1px solid #E4E7ED;
+        }
     }
 </style>
