@@ -27,7 +27,7 @@
     import Icon from "./icon";
 
     export default {
-        name: "s-button",
+        name: "SimpleButton",
         components: {
             "s-icon": Icon
         },
@@ -151,7 +151,6 @@
     }
 
     .s-button {
-
         padding: 12px 20px;
         border-radius: $border-radius;
         display: inline-flex;
@@ -164,26 +163,29 @@
             order: 2;
         }
 
-
-
         > .loading {
             animation: 2s linear infinite spin;
         }
+
         &.is-round {
             padding: 12px 23px;
             border-radius: 20px;
         }
+
         &.s-button--medium {
             padding: 10px 20px;
+
             &.is-round {
                 padding: 10px 20px;
                 border-radius: 20px;
             }
         }
+
         &.s-button--small {
             padding: 9px 15px;
             font-size: 12px;
             border-radius: 3px;
+
             &.is-round {
                 padding: 9px 15px;
                 border-radius: 20px;
@@ -194,13 +196,12 @@
             padding: 7px 15px;
             font-size: 12px;
             border-radius: 3px;
+
             &.is-round {
                 padding: 7px 15px;
                 border-radius: 20px;
             }
         }
-
-
 
         &.is-disabled {
         }
@@ -356,6 +357,7 @@
             border: 1px solid $button-danger-active-border;
             background-color: $button-danger-active-bg;
         }
+
         > .icon {
             order: 1;
             margin-right: 5px;

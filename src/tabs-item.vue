@@ -6,7 +6,7 @@
 
 <script>
     export default {
-        name: "sTabsItem",
+        name: "SimpleTabsItem",
         data() {
             return {
                 active: false

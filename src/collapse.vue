@@ -8,7 +8,7 @@
     import Vue from 'vue'
 
     export default {
-        name: "SCollapse",
+        name: "SimpleCollapse",
         data() {
             return {
                 eventBus: new Vue()

@@ -7,7 +7,7 @@
 <script>
     import Vue from 'vue'
     export default {
-        name: "gTabs",
+        name: "SimpleTabs",
         props: {
             selected: {
                 type: String
@@ -32,10 +32,10 @@
         },
         mounted() {
             this.$children.forEach((vm) => {
-                if(vm.$options.name === 'sTabsHead')
+                if(vm.$options.name === 'SimpleTabsHead')
                 {
                     vm.$children.forEach((vmChild) => {
-                        if(vmChild.$options.name === 'sTabsItem' && vmChild.name === this.selected)
+                        if(vmChild.$options.name === 'SimpleTabsItem' && vmChild.name === this.selected)
                         {
                             this.eventBus.$emit('update:selected',this.selected,vmChild)
                         }

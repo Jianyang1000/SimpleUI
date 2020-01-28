@@ -24,7 +24,7 @@
     import Icon from "./icon";
 
     export default {
-        name: "",
+        name: "SimpleInput",
         components: {
             "s-icon": Icon
         },

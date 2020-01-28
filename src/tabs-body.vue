@@ -6,7 +6,7 @@
 
 <script>
     export default {
-        name: "sTabsBody",
+        name: "SimpleTabsBody",
         inject:['eventBus']
     }
 </script>
