@@ -51,6 +51,9 @@ new Vue({
         selectedTab: '2'
     },
     methods: {
+        yyy(){
+            console.log('yyy');
+        },
         inputChange() {
             console.log('change了')
         },

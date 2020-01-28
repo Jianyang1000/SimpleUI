@@ -1,41 +1,55 @@
 <template>
-    <div class="popover" @click.stop="xxx">
-        <div class="contentWrapper" v-if="visible" @click.stop>
+    <div class="popover" @click="onClick" ref="popover">
+        <div class="contentWrapper" v-if="visible" ref="contentWrapper">
             <slot name="content"></slot>
         </div>
-        <slot></slot>
+        <span ref="triggerWrapper" class="triggerWrapper">
+            <slot></slot>
+        </span>
     </div>
 </template>
 
 <script>
     export default {
         name: "SimplePopover",
-        data(){
+        data() {
             return {
-                visible: true
+                visible: false
             }
         },
         methods: {
-            xxx(){
-                if(this.visible === true)
-                {
-                    this.visible = false;
-                }else {
-                    this.visible = true;
-                    let eventHandle = () => {
-                        this.visible = false
-                        console.log('监听移除')
-                        document.removeEventListener('click',eventHandle)
-
+            positionContent(){
+                const {contentWrapper, triggerWrapper} = this.$refs
+                document.body.appendChild(contentWrapper)
+                let {width, height, left, top} = triggerWrapper.getBoundingClientRect()
+                this.$refs.contentWrapper.style.left = left + window.scrollX + 'px'
+                this.$refs.contentWrapper.style.top = top + window.scrollY + 'px'
+            },
+            onClickDocument(e){
+                if(this.$refs.popover && this.$refs.popover || this.$refs.popover.contains(e.target)) {return}
+                this.close()
+            },
+            close(){
+                this.visible = false;
+                document.removeEventListener('click', this.onClickDocument)
+            },
+            open(){
+                this.visible = true
+                setTimeout(() => {
+                    this.positionContent()
+                    document.addEventListener('click', this.onClickDocument)
+                })
+            },
+            onClick(e) {
+                if (this.$refs.triggerWrapper.contains(e.target)) {
+                    if (this.visible === false) {
+                        this.open()
+                    } else{
+                        this.close()
                     }
-                    console.log('监听事件');
-                    document.addEventListener('click',eventHandle)
                 }
             }
         },
-        mounted() {
-
-        }
     }
 </script>
 
@@ -44,11 +58,16 @@
         display: inline-block;
         vertical-align: top;
         position: relative;
-        .contentWrapper {
-            position: absolute;
-            bottom: 100%;
-            left:0;
-            border: 1px solid red;
+
+        .triggerWrapper {
+
         }
     }
+
+    .contentWrapper {
+        position: absolute;
+        border: 1px solid red;
+        transform: translateY(-100%);
+    }
+
 </style>

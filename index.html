@@ -12,12 +12,12 @@
         }
 
         #app {
-
+            margin-top: 120px;
+            margin-left: 120px;
 
         }
         #app>div {
-            margin-top: 120px;
-            margin-left: 120px;
+
         }
         .icon {
             width: 1em;
@@ -27,26 +27,21 @@
             overflow: hidden;
         }
     </style>
-    <style>
-        .demo {
-            border: 1px solid #666;
-            min-height: 100px;
-        }
-
-
-    </style>
 </head>
 
 <body>
     <div id="app">
-        <s-popover>
-            <template slot="content">
-                <div>
-                    我是点击信息
-                </div>
-            </template>
-            <s-button>click激活</s-button>
-        </s-popover>
+        <div style="overflow: hidden;border: 1px solid green;" @click="yyy">
+            <s-popover>
+                <template slot="content">
+                    <div>
+                        我是点击信息
+                    </div>
+                </template>
+                <s-button>click激活</s-button>
+            </s-popover>
+
+        </div>
 
         <!--<s-collapse :selected.sync="selectedTab" single>
             <s-collapse-item title="一致性 Consistency" name="1">
@@ -172,7 +167,7 @@
             <s-input v-model="message"></s-input>
             <p>{{message}}</p>
         </div>
-    </div>-->
+    -->
     </div>
 
 
