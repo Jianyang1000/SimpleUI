@@ -31,7 +31,7 @@
 
 <body>
     <div id="app">
-        <div style="overflow: hidden;border: 1px solid green;" @click="yyy">
+        <div style="" @click="yyy">
             <s-popover>
                 <template slot="content">
                     <div>
@@ -40,9 +40,65 @@
                 </template>
                 <s-button>click激活</s-button>
             </s-popover>
-
+            <s-popover position="bottom">
+                <template slot="content">
+                    <div>
+                        我是点击信息我是点击信息我是点击信息我是点击信息我是点击信息我是点击信息我是点击信息我是点击信息我是点击信息
+                    </div>
+                </template>
+                <s-button>click激活</s-button>
+            </s-popover>
+            <s-popover position="left">
+                <template slot="content">
+                    <div>
+                        我是点击信息
+                    </div>
+                </template>
+                <s-button>click激活</s-button>
+            </s-popover>
+            <s-popover position="right">
+                <template slot="content">
+                    <div>
+                        我是点击信息
+                    </div>
+                </template>
+                <s-button>click激活</s-button>
+            </s-popover>
         </div>
-
+        <div style="margin-top: 50px;" @click="yyy">
+            <s-popover trigger="mouseenter">
+                <template slot="content">
+                    <div>
+                        我是点击信息
+                    </div>
+                </template>
+                <s-button>click激活</s-button>
+            </s-popover>
+            <s-popover position="bottom" trigger="mouseenter">
+                <template slot="content">
+                    <div>
+                        我是点击信息我是点击信息我是点击信息我是点击信息我是点击信息我是点击信息我是点击信息我是点击信息我是点击信息
+                    </div>
+                </template>
+                <s-button>click激活</s-button>
+            </s-popover>
+            <s-popover position="left" trigger="mouseenter">
+                <template slot="content">
+                    <div>
+                        我是点击信息
+                    </div>
+                </template>
+                <s-button>click激活</s-button>
+            </s-popover>
+            <s-popover position="right" trigger="mouseenter">
+                <template slot="content">
+                    <div>
+                        我是点击信息
+                    </div>
+                </template>
+                <s-button>click激活</s-button>
+            </s-popover>
+        </div>
         <!--<s-collapse :selected.sync="selectedTab" single>
             <s-collapse-item title="一致性 Consistency" name="1">
                 <div>与现实生活一致：与现实生活的流程、逻辑保持一致，遵循用户习惯的语言和概念；</div>

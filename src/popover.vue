@@ -1,6 +1,6 @@
 <template>
-    <div class="popover" @click="onClick" ref="popover">
-        <div class="contentWrapper" v-if="visible" ref="contentWrapper">
+    <div class="popover" ref="popover">
+        <div class="contentWrapper" v-if="visible" ref="contentWrapper" :class="[`position-${position}`]">
             <slot name="content"></slot>
         </div>
         <span ref="triggerWrapper" class="triggerWrapper">
@@ -17,16 +17,66 @@
                 visible: false
             }
         },
+        props: {
+            position: {
+                type: String,
+                default: 'top',
+                validator(value){
+                    return ['top','bottom','left','right'].indexOf(value) >= 0
+                }
+            },
+            trigger: {
+                type: String,
+                default: 'click',
+                validator(value){
+                    return ['click','mouseenter'].indexOf(value) >= 0
+                }
+            }
+        },
+        mounted() {
+            const popover = this.$refs.popover
+            if(this.trigger === 'click')
+            {
+                popover.addEventListener('click',this.onClick)
+            }else{
+                popover.addEventListener('mouseenter',this.open)
+                popover.addEventListener('mouseleave',this.close)
+            }
+        },
+        destroyed() {
+            if (this.trigger === 'click') {
+                this.$refs.popover.removeEventListener('click', this.onClick)
+            } else {
+                this.$refs.popover.removeEventListener('mouseenter', this.open)
+                this.$refs.popover.removeEventListener('mouseleave', this.close)
+            }
+        },
         methods: {
             positionContent(){
                 const {contentWrapper, triggerWrapper} = this.$refs
                 document.body.appendChild(contentWrapper)
                 let {width, height, left, top} = triggerWrapper.getBoundingClientRect()
-                this.$refs.contentWrapper.style.left = left + window.scrollX + 'px'
-                this.$refs.contentWrapper.style.top = top + window.scrollY + 'px'
+                let {height: height2} = contentWrapper.getBoundingClientRect()
+                if(this.position === 'top')
+                {
+                    this.$refs.contentWrapper.style.left = left + window.scrollX + 'px'
+                    this.$refs.contentWrapper.style.top = top + window.scrollY + 'px'
+                }else if(this.position === 'bottom') {
+                    this.$refs.contentWrapper.style.left = left + window.scrollX + 'px'
+                    this.$refs.contentWrapper.style.top = top + height + window.scrollY + 'px'
+                }else if(this.position === 'left') {
+                    this.$refs.contentWrapper.style.left = left + window.scrollX + 'px'
+                    this.$refs.contentWrapper.style.top = top + (height - height2)/2 + window.scrollY + 'px'
+                }else {
+                    this.$refs.contentWrapper.style.left = left + width + window.scrollX + 'px'
+                    this.$refs.contentWrapper.style.top = top + (height - height2)/2 + window.scrollY + 'px'
+                }
+
+
             },
             onClickDocument(e){
-                if(this.$refs.popover && this.$refs.popover || this.$refs.popover.contains(e.target)) {return}
+                if(this.$refs.popover && this.$refs.popover === e.target || this.$refs.popover.contains(e.target)) {return}
+                if(this.$refs.contentWrapper && this.$refs.contentWrapper === e.target || this.$refs.contentWrapper.contains(e.target)){return}
                 this.close()
             },
             close(){
@@ -54,20 +104,93 @@
 </script>
 
 <style scoped lang="scss">
+    $border-color: #ebeef5;
+    $border-radius: 4px;
     .popover {
         display: inline-block;
         vertical-align: top;
         position: relative;
-
         .triggerWrapper {
+            display: inline-block;
+        }
+    }
+    .contentWrapper {
+        position: absolute;
+        border: 1px solid $border-color;
+        box-shadow: 0 2px 12px 0 rgba(0,0,0,.1);
+        color: #606266;
+        padding: 1em 1.5em;
+        font-size: 14px;
+        word-break: break-all;
+        max-width: 20em;
+        &::before {
+            content:'';
+            display: block;
+            border: 7px solid transparent;
+            position: absolute;
+        }
+        &::after {
+            content:'';
+            display: block;
+            border: 7px solid transparent;
+            position: absolute;
+        }
 
+        &.position-top {
+            transform: translateY(-100%);
+            margin-top: -10px;
+            &::before {
+                border-top-color: $border-color;
+                top: 100%;
+            }
+            &::after {
+                top: calc(100% - 1px);
+                border-top-color: #fff;
+            }
+        }
+        &.position-bottom {
+            margin-top: 10px;
+            &::before {
+                bottom: 100%;
+                border-bottom-color: $border-color;
+            }
+            &::after {
+                bottom: calc(100% - 1px);
+                border-bottom-color: #fff;
+            }
+        }
+        &.position-left {
+            margin-left: -10px;
+            transform: translateX(-100%);
+            &::before {
+                left: 100%;
+                bottom: 50%;
+                transform:translateY(50%);
+                border-left-color: $border-color;
+            }
+            &::after {
+                left: calc(100% - 1px);
+                bottom: 50%;
+                transform:translateY(50%);
+                border-left-color: #fff;
+            }
+        }
+        &.position-right {
+            margin-left: 10px;
+            &::before {
+                right: 100%;
+                bottom: 50%;
+                transform:translateY(50%);
+                border-right-color: $border-color;
+            }
+            &::after {
+                right: calc(100% - 1px);
+                bottom: 50%;
+                transform:translateY(50%);
+                border-right-color: #fff;
+            }
         }
     }
 
-    .contentWrapper {
-        position: absolute;
-        border: 1px solid red;
-        transform: translateY(-100%);
-    }
 
 </style>

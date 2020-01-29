@@ -6,6 +6,7 @@
 
 <script>
     import Vue from 'vue'
+
     export default {
         name: "SimpleTabs",
         props: {
@@ -15,34 +16,36 @@
             direction: {
                 type: String,
                 default: 'horizontal',
-                validator(value){
-                    return ['horizontal','vertical'].indexOf(value) >= 0
+                validator(value) {
+                    return ['horizontal', 'vertical'].indexOf(value) >= 0
                 }
             }
         },
-        data(){
-          return {
-              eventBus: new Vue()
-          }
+        data() {
+            return {
+                eventBus: new Vue()
+            }
         },
         provide() {
             return {
                 eventBus: this.eventBus
             }
         },
+        methods: {
+            select() {
+                this.$children.forEach((vm) => {
+                    if (vm.$options.name === 'SimpleTabsHead') {
+                        vm.$children.forEach((vmChild) => {
+                            if (vmChild.$options.name === 'SimpleTabsItem' && vmChild.name === this.selected) {
+                                this.eventBus.$emit('update:selected', this.selected, vmChild)
+                            }
+                        })
+                    }
+                })
+            }
+        },
         mounted() {
-            this.$children.forEach((vm) => {
-                if(vm.$options.name === 'SimpleTabsHead')
-                {
-                    vm.$children.forEach((vmChild) => {
-                        if(vmChild.$options.name === 'SimpleTabsItem' && vmChild.name === this.selected)
-                        {
-                            this.eventBus.$emit('update:selected',this.selected,vmChild)
-                        }
-                    })
-                }
-
-            })
+            this.select()
 
         }
     }
