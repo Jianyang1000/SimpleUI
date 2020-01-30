@@ -11,8 +11,9 @@ lang: en-US
 ### 基础用法
 
 基础的按钮用法
-
-<button-demo-1></button-demo-1>
+<ClientOnly>
+  <button-demo-1></button-demo-1>
+</ClientOnly>
 
 ```vue
 <s-button>默认按钮</s-button>
@@ -32,8 +33,10 @@ lang: en-US
 ### 图标按钮
 
 带图标的按钮可增强辨识度（有文字）或节省空间（无文字）。
+<ClientOnly>
+  <button-demo-2></button-demo-2>
+</ClientOnly>
 
-<button-demo-2></button-demo-2>
 
 ```vue
 <s-button type="primary" icon="search">登录</s-button>
@@ -44,8 +47,10 @@ lang: en-US
 ### 按钮组
 
 以按钮组的方式出现，常用于多项类似操作。
+<ClientOnly>
+  <button-demo-3></button-demo-3>
+</ClientOnly>
 
-<button-demo-3></button-demo-3>
 
 ```vue
 <s-button-group>
@@ -58,8 +63,10 @@ lang: en-US
 ### 加载中
 
 点击按钮后进行数据加载操作，在按钮上显示加载状态。
+<ClientOnly>
+  <button-demo-4></button-demo-4>
+</ClientOnly>
 
-<button-demo-4></button-demo-4>
 
 ```vue
 <s-button loading icon-position="right">登录</s-button>
@@ -68,8 +75,10 @@ lang: en-US
 ### 不同尺寸
 
 Button 组件提供除了默认值以外的三种尺寸，可以在不同场景下选择合适的按钮尺寸。
+<ClientOnly>
+  <button-demo-5></button-demo-5>
+</ClientOnly>
 
-<button-demo-5></button-demo-5>
 
 ```vue
 <s-button>按钮</s-button>

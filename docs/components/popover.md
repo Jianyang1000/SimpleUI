@@ -9,8 +9,10 @@ lang: en-US
 ### 基础用法
 
 点击出现top、bottom、left、right四个方向的popover
+<ClientOnly>
+  <popover-demo-1></popover-demo-1>
+</ClientOnly>
 
-<popover-demo-1></popover-demo-1>
 
 ```vue
 <s-popover>
@@ -50,7 +52,8 @@ lang: en-US
 ### 不同的触发条件
 
 hover的时候触发popover
-
+<ClientOnly>
+</ClientOnly>
 <popover-demo-2></popover-demo-2>
 
 ```vue

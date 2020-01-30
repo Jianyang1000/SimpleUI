@@ -1,4 +1,5 @@
 module.exports = {
+    base:'/SimpleUI',
     title: 'Simple UI',
     description: '一个简单的UI组件库',
     themeConfig: {

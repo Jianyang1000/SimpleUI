@@ -8,8 +8,10 @@ lang: en-US
 用于布局的容器组件，方便快速搭建页面的基本结构：
 
 ### 常见页面布局
+<ClientOnly>
+  <container-demo-1></container-demo-1>
+</ClientOnly>
 
-<container-demo-1></container-demo-1>
 
 
 ```vue

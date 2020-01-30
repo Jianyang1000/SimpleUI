@@ -10,8 +10,10 @@ lang: en-US
 ### 基础布局
 
 使用单一分栏创建基础的栅格布局。
+<ClientOnly>
+  <layout-demo-1></layout-demo-1>
+</ClientOnly>
 
-<layout-demo-1></layout-demo-1>
 
 ```vue
 <s-row>
@@ -45,8 +47,10 @@ lang: en-US
 ### 分栏间隔
 
 分栏之间存在间隔。
+<ClientOnly>
+  <layout-demo-2></layout-demo-2>
+</ClientOnly>
 
-<layout-demo-2></layout-demo-2>
 
 ```vue
 <s-row gutter="20">
@@ -68,8 +72,10 @@ lang: en-US
 ### 混合布局
 
 通过基础的 1/24 分栏任意扩展组合形成较为复杂的混合布局。
+<ClientOnly>
+  <layout-demo-3></layout-demo-3>
+</ClientOnly>
 
-<layout-demo-3></layout-demo-3>
 
 ```vue
 <s-row gutter="20">
@@ -92,8 +98,10 @@ lang: en-US
 ### 分栏偏移
 
 支持偏移指定的栏数。
+<ClientOnly>
+  <layout-demo-4></layout-demo-4>
+</ClientOnly>
 
-<layout-demo-4></layout-demo-4>
 
 ```vue
 <s-row gutter="20">
@@ -113,8 +121,10 @@ lang: en-US
 ### 响应式布局
 
 参照了 Bootstrap 的 响应式设计，预设了五个响应尺寸：默认iphone、ipad、narrowPc、pc、和widePc。
+<ClientOnly>
+  <layout-demo-5></layout-demo-5>
+</ClientOnly>
 
-<layout-demo-5></layout-demo-5>
 
 ```vue
 <s-row gutter="10">

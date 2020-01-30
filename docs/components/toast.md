@@ -22,8 +22,10 @@ lang: en-US
 ### 关闭按钮
 
 点击关闭按钮，提示框消失
+<ClientOnly>
+  <toast-demo-2></toast-demo-2>
+</ClientOnly>
 
-<toast-demo-2></toast-demo-2>
 
 ```vue
 <s-button @click="$toast('点击弹出提示'),{position: 'top',closeButton: {text: '关闭',callback:outputMessage}}">上方弹出</s-button>
