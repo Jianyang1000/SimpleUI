@@ -46,7 +46,7 @@
                 popover.addEventListener('mouseleave',this.close)
             }
         },
-        destroyed() {
+        beforeDestroyed() {
             if (this.trigger === 'click') {
                 this.$refs.popover.removeEventListener('click', this.onClick)
             } else {
@@ -60,20 +60,26 @@
                 document.body.appendChild(contentWrapper)
                 let {width, height, left, top} = triggerWrapper.getBoundingClientRect()
                 let {height: height2} = contentWrapper.getBoundingClientRect()
-                if(this.position === 'top')
-                {
-                    this.$refs.contentWrapper.style.left = left + window.scrollX + 'px'
-                    this.$refs.contentWrapper.style.top = top + window.scrollY + 'px'
-                }else if(this.position === 'bottom') {
-                    this.$refs.contentWrapper.style.left = left + window.scrollX + 'px'
-                    this.$refs.contentWrapper.style.top = top + height + window.scrollY + 'px'
-                }else if(this.position === 'left') {
-                    this.$refs.contentWrapper.style.left = left + window.scrollX + 'px'
-                    this.$refs.contentWrapper.style.top = top + (height - height2)/2 + window.scrollY + 'px'
-                }else {
-                    this.$refs.contentWrapper.style.left = left + width + window.scrollX + 'px'
-                    this.$refs.contentWrapper.style.top = top + (height - height2)/2 + window.scrollY + 'px'
+                let positions = {
+                    top: {
+                        top: top + window.scrollY,
+                        left: left + window.scrollX
+                    },
+                    bottom: {
+                        top: top + height + window.scrollY,
+                        left: left + window.scrollX
+                    },
+                    left: {
+                        top: top + (height - height2)/2 + window.scrollY,
+                        left: left + window.scrollX
+                    },
+                    right: {
+                        top: top + (height - height2)/2 + window.scrollY,
+                        left: left + width + window.scrollX
+                    }
                 }
+                this.$refs.contentWrapper.style.left = positions[this.position].left + 'px'
+                this.$refs.contentWrapper.style.top = positions[this.position].top + 'px'
             },
             onClickDocument(e){
                 if(this.$refs.popover && this.$refs.popover === e.target || this.$refs.popover.contains(e.target)) {return}
