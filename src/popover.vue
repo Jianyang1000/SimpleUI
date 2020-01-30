@@ -1,11 +1,14 @@
 <template>
     <div class="popover" ref="popover">
-        <div class="contentWrapper" v-if="visible" ref="contentWrapper" :class="[`position-${position}`]">
-            <slot name="content"></slot>
-        </div>
+        <transition name="fade">
+            <div class="contentWrapper" v-if="visible" ref="contentWrapper" :class="[`position-${position}`]">
+                <slot name="content"></slot>
+            </div>
+        </transition>
         <span ref="triggerWrapper" class="triggerWrapper">
             <slot></slot>
         </span>
+
     </div>
 </template>
 
@@ -71,8 +74,6 @@
                     this.$refs.contentWrapper.style.left = left + width + window.scrollX + 'px'
                     this.$refs.contentWrapper.style.top = top + (height - height2)/2 + window.scrollY + 'px'
                 }
-
-
             },
             onClickDocument(e){
                 if(this.$refs.popover && this.$refs.popover === e.target || this.$refs.popover.contains(e.target)) {return}
@@ -123,6 +124,7 @@
         font-size: 14px;
         word-break: break-all;
         max-width: 20em;
+        background-color: #fff;
         &::before {
             content:'';
             display: block;
@@ -144,7 +146,7 @@
                 top: 100%;
             }
             &::after {
-                top: calc(100% - 1px);
+                top: calc(100% - 2px);
                 border-top-color: #fff;
             }
         }
@@ -155,7 +157,7 @@
                 border-bottom-color: $border-color;
             }
             &::after {
-                bottom: calc(100% - 1px);
+                bottom: calc(100% - 2px);
                 border-bottom-color: #fff;
             }
         }
@@ -169,7 +171,7 @@
                 border-left-color: $border-color;
             }
             &::after {
-                left: calc(100% - 1px);
+                left: calc(100% - 2px);
                 bottom: 50%;
                 transform:translateY(50%);
                 border-left-color: #fff;
@@ -184,12 +186,18 @@
                 border-right-color: $border-color;
             }
             &::after {
-                right: calc(100% - 1px);
+                right: calc(100% - 2px);
                 bottom: 50%;
                 transform:translateY(50%);
                 border-right-color: #fff;
             }
         }
+    }
+    .fade-enter-active, .fade-leave-active {
+        transition: opacity .3s;
+    }
+    .fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+        opacity: 0;
     }
 
 

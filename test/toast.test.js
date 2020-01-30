@@ -47,8 +47,6 @@ describe('Toast',() => {
                         callback,
                     }
                 }
-
-
             }).$mount();
             const closeButton = vm.$el.querySelector('.close')
             expect(closeButton.textContent.trim()).to.eq('知道了')
